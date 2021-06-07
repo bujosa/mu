@@ -8,6 +8,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
+import { Picture } from './dto/picture';
 
 @Controller()
 export class AppController {
@@ -26,9 +27,8 @@ export class AppController {
   }
 
   @Post('delete')
-  async deleteFile(@Body() url: string) {
-    console.log(url);
-    return await this.appService.deleteFile(url);
+  async deleteFile(@Body() picture: Picture) {
+    return await this.appService.deleteFile(picture);
   }
 
   @Post('uploads')

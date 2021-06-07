@@ -17,10 +17,10 @@ export const uploadFileHelper = async (
         Bucket: process.env.BUCKET_NAME,
         Body: file.buffer,
         Key: fileName,
+        ACL: 'public-read',
       },
       (err) => {
         if (err) {
-          console.log(err);
         }
       },
     )

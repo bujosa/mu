@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Picture } from './dto/picture';
 import { deleteFileHelper } from './helper/delete-file';
 import { uploadFileHelper } from './helper/upload-file';
 
@@ -8,11 +9,10 @@ export class AppService {
     return await uploadFileHelper(file);
   }
 
-  async deleteFile(url: string) {
+  async deleteFile(picture: Picture) {
     try {
-      await deleteFileHelper(url);
+      await deleteFileHelper(picture);
     } catch (err) {
-      console.log(err);
       return false;
     }
     return true;
