@@ -8,10 +8,9 @@ export class AppService {
     return await uploadFileHelper(file);
   }
 
-  async deleteFile(key: string) {
+  async deleteFile(url: string) {
     try {
-      const deleteObject = await deleteFileHelper(key);
-      console.log(deleteObject);
+      await deleteFileHelper(url);
     } catch (err) {
       console.log(err);
       return false;

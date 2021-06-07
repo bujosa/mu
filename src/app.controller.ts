@@ -1,7 +1,6 @@
 import {
+  Body,
   Controller,
-  Get,
-  Param,
   Post,
   UploadedFile,
   UploadedFiles,
@@ -26,9 +25,10 @@ export class AppController {
     return await this.appService.uploadFile(file);
   }
 
-  @Get('delete/:id')
-  async deleteFile(@Param() params) {
-    return await this.appService.deleteFile(params.id);
+  @Post('delete')
+  async deleteFile(@Body() url: string) {
+    console.log(url);
+    return await this.appService.deleteFile(url);
   }
 
   @Post('uploads')
