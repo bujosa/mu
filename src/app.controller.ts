@@ -16,7 +16,7 @@ export class AppController {
 
   @Post('upload')
   @UseInterceptors(
-    FileInterceptor('photo', {
+    FileInterceptor('image', {
       limits: {
         fileSize: 2000000,
       },
@@ -33,7 +33,7 @@ export class AppController {
 
   @Post('uploads')
   @UseInterceptors(
-    FilesInterceptor('photos', null, {
+    FilesInterceptor('images', null, {
       limits: { fileSize: 2000000 },
     }),
   )
