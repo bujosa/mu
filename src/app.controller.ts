@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
-import { Picture } from './dto/picture';
+import { Picture } from './dtos/picture';
 
 @Controller()
 export class AppController {

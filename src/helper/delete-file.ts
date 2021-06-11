@@ -1,5 +1,5 @@
 import { Endpoint, S3 } from 'aws-sdk';
-import { Picture } from 'src/dto/picture';
+import { Picture } from 'src/dtos/picture';
 
 export const deleteFileHelper = async (picture: Picture) => {
   const key = picture.url.split(`${process.env.SPACE_ENDPOINT}/`).pop();

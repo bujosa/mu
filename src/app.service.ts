@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Picture } from './dto/picture';
+import { Picture } from './dtos/picture';
 import { deleteFileHelper } from './helper/delete-file';
 import { uploadFileHelper } from './helper/upload-file';
 
