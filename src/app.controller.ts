@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Post,
   UploadedFile,
   UploadedFiles,
@@ -10,11 +11,11 @@ import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
 import { Picture } from './dtos/picture';
 
-@Controller()
+@Controller('upload')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Post('upload')
+  @Post('file')
   @UseInterceptors(
     FileInterceptor('image', {
       limits: {
@@ -26,12 +27,12 @@ export class AppController {
     return await this.appService.uploadFile(file);
   }
 
-  @Post('delete')
+  @Delete('file')
   async deleteFile(@Body() picture: Picture) {
     return await this.appService.deleteFile(picture);
   }
 
-  @Post('uploads')
+  @Post('files')
   @UseInterceptors(
     FilesInterceptor('images', null, {
       limits: { fileSize: 2000000 },
