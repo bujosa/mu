@@ -19,7 +19,7 @@ export class AppController {
   @UseInterceptors(
     FileInterceptor('image', {
       limits: {
-        fileSize: 2000000,
+        fileSize: 3000000,
       },
     }),
   )
@@ -35,7 +35,7 @@ export class AppController {
   @Post('files')
   @UseInterceptors(
     FilesInterceptor('images', null, {
-      limits: { fileSize: 2000000 },
+      limits: { fileSize: 3000000 },
     }),
   )
   async uploadFiles(
