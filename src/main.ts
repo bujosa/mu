@@ -9,7 +9,9 @@ async function bootstrap() {
     secretAccessKey: process.env.AWS_SECRET_KEY,
     region: process.env.AWS_REGION,
   });
+
   const app = await NestFactory.create(AppModule);
+
   await app.listen(3000);
 }
 bootstrap();
