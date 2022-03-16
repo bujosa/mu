@@ -6,7 +6,7 @@ import { uploadFileHelper } from './helper/upload-file';
 @Injectable()
 export class AppService {
   async uploadFile(file: Express.Multer.File): Promise<string> {
-    return await uploadFileHelper(file);
+    return uploadFileHelper(file);
   }
 
   async deleteFile(picture: Picture) {
