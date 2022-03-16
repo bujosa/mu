@@ -3,7 +3,6 @@ import { AppModule } from './app.module';
 import { config } from 'aws-sdk';
 
 async function bootstrap() {
-  // Load AWS credentials from the environment
   config.update({
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_KEY,
