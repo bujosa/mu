@@ -13,7 +13,7 @@ import { Picture } from './dtos/picture';
 
 @Controller('upload')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly service: AppService) {}
 
   @Post('file')
   @UseInterceptors(
@@ -24,12 +24,12 @@ export class AppController {
     }),
   )
   async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    return this.appService.uploadFile(file);
+    return this.service.uploadFile(file);
   }
 
   @Delete('file')
   async deleteFile(@Body() picture: Picture) {
-    return this.appService.deleteFile(picture);
+    return this.service.deleteFile(picture);
   }
 
   @Post('files')
@@ -41,6 +41,6 @@ export class AppController {
   async uploadFiles(
     @UploadedFiles() files: Express.Multer.File[],
   ): Promise<string[]> {
-    return this.appService.uploadFiles(files);
+    return this.service.uploadFiles(files);
   }
 }
